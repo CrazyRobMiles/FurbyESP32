@@ -20,7 +20,7 @@ public:
 
 	bool disconnect();
 
-	bool loop();
+	static bool loop();
 
 	void bindToFurbyStatusMessages(void (*receiveStatus)(const char* statusString));
 	void unbindFromFurbyStatusMessages();

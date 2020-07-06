@@ -207,10 +207,16 @@ bool Furby::connect()
 
 bool Furby::loop()
 {
-    unsigned long millisAtLoop = millis();
-    unsigned long millisSinceUpdate = millisAtLoop - millisAtLastUpdate;
 
-    switch (furbyState)
+    if(theFurby==NULL)
+    {
+        return false;
+    }
+
+    unsigned long millisAtLoop = millis();
+    unsigned long millisSinceUpdate = millisAtLoop - theFurby->millisAtLastUpdate;
+
+    switch (theFurby->furbyState)
     {
 
     case turnedOn:
@@ -222,12 +228,12 @@ bool Furby::loop()
             // Need to ping the Furby to keep the connection alive
             // A null command will do it
 
-            sendStatus("tick");
+            theFurby->sendStatus("tick");
 
             unsigned char emptyCommand[] = { 0x00 };
-            sendMessageToFurby(emptyCommand, 1);
+            theFurby->sendMessageToFurby(emptyCommand, 1);
 
-            millisAtLastUpdate = millisAtLoop;
+            theFurby->millisAtLastUpdate = millisAtLoop;
         }
         break;
 

@@ -33,7 +33,7 @@ bool WeatherClient::update(int timeOutInSeconds)
 
 	String payload = http.getString();
 
-	//Serial.printf("Got payload: %s\n", payload.c_str());
+	Serial.printf("Got payload: %s\n", payload.c_str());
 
 	const size_t capacity = JSON_ARRAY_SIZE(1) + JSON_OBJECT_SIZE(1) + 2 * JSON_OBJECT_SIZE(2) + JSON_OBJECT_SIZE(4) + JSON_OBJECT_SIZE(5) + JSON_OBJECT_SIZE(6) + JSON_OBJECT_SIZE(13) + 280;
 
@@ -67,4 +67,3 @@ void WeatherClient::getWeatherDescription(char* destination)
 {
 	snprintf(destination, WEATHER_DESC_LENGTH, "%s", weatherDescription);
 }
-

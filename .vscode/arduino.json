@@ -1,0 +1,6 @@
+{
+    "board": "esp32:esp32:m5stick-c",
+    "configuration": "PartitionScheme=no_ota,UploadSpeed=1500000,DebugLevel=none",
+    "sketch": "M5StickCWeatherFurby\\M5StickCWeatherFurby.ino",
+    "port": "COM3"
+}

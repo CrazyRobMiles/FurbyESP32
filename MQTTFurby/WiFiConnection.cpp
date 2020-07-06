@@ -1,4 +1,5 @@
 #include "WiFiConnection.h"
+#include "Furby.h"
 
 
 WiFiConnection::WiFiConnection()
@@ -26,6 +27,11 @@ bool WiFiConnection::connect(char* ssid, char* password, int timeOutInSeconds)
             WiFi.mode(WIFI_OFF);
             return false;
         }
+
+        // keep the Furby awake while we wait for the 
+        // WiFi connection
+
+        Furby::loop();
 
         delay(100);
     }
